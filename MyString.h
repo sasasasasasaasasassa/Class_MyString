@@ -5,6 +5,7 @@ class MyString {
 private:
     char *str;
     int length;
+    static int count;
 public:
     MyString();
     MyString(int size);
@@ -17,6 +18,7 @@ public:
     MyString& operator=(MyString&& other) noexcept;
 
     void Print();
+    void PrintStatic();
     void Init();
     bool MyStrStr(const char* s);
 

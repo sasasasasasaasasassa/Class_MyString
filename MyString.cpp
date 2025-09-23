@@ -6,6 +6,7 @@ MyString::MyString() {
     length = 80;
     str = new char[length + 1];
     str[0] = '\0';
+    MyString::count = 0;
 }
 
 MyString::MyString(int size) {
@@ -34,6 +35,7 @@ MyString::MyString(const MyString& obj) {
     } else {
         str[0] = '\0';
     }
+    count = obj.count;
 }
 
 MyString::MyString(MyString&& other) noexcept {
@@ -81,6 +83,10 @@ void MyString::Print() {
     } else {
         cout << "(empty)" << endl;
     }
+}
+
+void MyString::PrintStatic() {
+    cout << "Count: " << MyString::count << endl;
 }
 
 void MyString::Init() {
