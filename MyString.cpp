@@ -181,3 +181,45 @@ int MyString::MyStrCmp(const MyString& b) const {
     if (result > 0) return 1;
     return 0;
 }
+
+MyString MyString::operator+(MyString& obj) { // MyString rez = obj + obj2;
+    MyString result(this->length + obj.length);
+
+    strcpy(result.str, this->str);
+    strcat(result.str, obj.str);
+
+    return result;
+}
+
+MyString MyString::operator+(const MyString& obj) { // MyString rez2 = obj + "!!!";
+    MyString result(this->length + obj.length);
+
+    strcpy(result.str, this->str);
+    strcat(result.str, obj.str);
+
+    return result;
+}
+
+MyString MyString::operator+(char c) { // MyString rez3 = obj + '?';
+    MyString result(this->length + 1);
+
+    strcpy(result.str, this->str);
+    int len = strlen(result.str);
+    result.str[len] = c;
+    result.str[len + 1] = '\0';
+
+    return result;
+}
+
+MyString MyString::operator-(const MyString& obj) { // MyString rez4 = obj - "world";
+    MyString result(this->length);
+    strcpy(result.str, this->str);
+
+    char* pos = strstr(result.str, obj.str);
+    while (pos != nullptr) {
+        strcpy(pos, pos + strlen(obj.str));
+        pos = strstr(result.str, obj.str);
+    }
+
+    return result;
+}

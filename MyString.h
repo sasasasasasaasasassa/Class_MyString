@@ -29,4 +29,10 @@ public:
     void MyDelChr(char c);
     int MyStrCmp(const MyString& b) const;
 
+    MyString operator+(MyString obj);
+    MyString operator+(MyString obj);
+    MyString operator+(char c);
+    MyString operator+(const MyString& obj);
+
+
 };
