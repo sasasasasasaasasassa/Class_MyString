@@ -34,5 +34,7 @@ public:
     MyString operator+(char c);
     MyString operator+(const MyString& obj);
 
+    MyString operator=(const MyString& other);
+
 
 };

@@ -223,3 +223,16 @@ MyString MyString::operator-(const MyString& obj) { // MyString rez4 = obj - "wo
 
     return result;
 }
+
+MyString& MyString::operator=(MyString&& other) noexcept {
+    if (this != &other) {
+        delete[] str;
+
+        str = other.str;
+        length = other.length;
+
+        other.str = nullptr;
+        other.length = 0;
+    }
+    return *this;
+}
